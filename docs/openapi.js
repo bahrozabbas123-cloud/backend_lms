@@ -5,7 +5,7 @@ const openapi = {
     version: "1.0.0",
     description: "Authentication, learning dashboard, assignments, notifications, certificates, and role-management APIs for EduCore LMS.",
   },
-  servers: [{ url: "http://localhost:5000", description: "Local development server" }],
+  servers: [{ url: "https://backend-lms-iota-gray.vercel.app", description: "Production server" }],
   tags: [
     { name: "System", description: "Service health and database checks" },
     { name: "Auth", description: "Registration, login, and current-user profile" },

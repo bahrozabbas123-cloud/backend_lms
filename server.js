@@ -2,6 +2,7 @@ const dashboardRoutes = require("./routes/dashboardRoutes");
 const express = require('express');
 const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
+const swaggerUiDist = require('swagger-ui-dist');
 require('dotenv').config();
 
 const authRoutes = require('./routes/authRoutes');
@@ -20,7 +21,8 @@ app.use(express.json());
 app.get('/docs/openapi.json', (req, res) => {
   res.json(openapiDocument);
 });
-app.use('/docs', swaggerUi.serve, swaggerUi.setup(openapiDocument));
+app.use('/docs', express.static(swaggerUiDist.getAbsoluteFSPath(), { index: false }));
+app.use('/docs', swaggerUi.setup(openapiDocument));
 
 // Health check
 app.get('/', (req, res) => {
